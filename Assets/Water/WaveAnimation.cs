@@ -9,9 +9,9 @@ public class WaveAnimation : MonoBehaviour {
 
     [Header("Options")]
     [SerializeField]
-    private float m_waveSpeed1;
+    private float m_waveSpeed1 = 0;
     [SerializeField]
-    private float m_waveSpeed2;
+    private float m_waveSpeed2 = 0;
 
     [Header("Debug")]
     [SerializeField]

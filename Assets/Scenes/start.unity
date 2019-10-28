@@ -3472,7 +3472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_renderer: {fileID: 835084554}
-  m_waveSpeed1: 0.0015
+  m_waveSpeed1: 0.0009
   m_waveSpeed2: 0.0009
   offset1: 0
   offset2: 0

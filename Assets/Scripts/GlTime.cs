@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GlTime : MonoBehaviour
 {
-    public int hour;// = 60 мин
-    public int minute; // = 6 сек
+    public int hour;// = 20 мин
+    public int minute; // = 1 сек
     public float second; // = 1 сек
     public int day;// = 24 часа
 
@@ -18,12 +18,12 @@ public class GlTime : MonoBehaviour
     void Update()
     {
         second += Time.deltaTime;
-        if(second >= 6f)//6 сек = минута
+        if(second >= 1f)//1 сек = минута
         {
             second = 0;
             minute += 1;
         }
-        if (minute >= 60)//60 мин = 1 час
+        if (minute >= 20)//20 мин = 1 час
         {
             minute = 0;
             hour += 1;

@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         scoreText = GetComponent<Text>();
-        score = 0;
+        score = 1000;
     }
 
 

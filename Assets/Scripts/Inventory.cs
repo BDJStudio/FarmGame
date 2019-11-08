@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
 
     public GameObject background;
 
+
     public void Start()
     {
         if(items.Count == 0)
@@ -33,16 +34,14 @@ public class Inventory : MonoBehaviour
             AddGraphics();
         }
 
-        for(int i = 0; i < maxCount; i++)//test
-        {
-            AddItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1, 16));
-        }
+        
 
         UpdateInventory();
     }
 
     public void Update()
     {
+
         if(currentID != -1)
         {
             MoveObject();
@@ -61,7 +60,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void SearchForSameItem(Item item, int count)
+    public void SearchForSameItem(Item item, int count, int price)
     {
         for(int i=0; i < maxCount; i++)
         {
@@ -91,7 +90,7 @@ public class Inventory : MonoBehaviour
             {
                 if(items[i].id == 0)
                 {
-                    AddItem(i, item, count);
+                    AddItem(i, item, count, price);
                     i = maxCount;
                 }
             }
@@ -107,11 +106,12 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void AddItem(int id, Item item, int count)
+    public void AddItem(int id, Item item, int count, int price)
     {
         items[id].id = item.id;
         items[id].count = count;
         items[id].itemGameObj.GetComponent<Image>().sprite = item.img;
+        items[id].price = price;
 
         if(count > 1 && item.id != 0)
         {
@@ -128,6 +128,7 @@ public class Inventory : MonoBehaviour
         items[id].id = invItem.id;
         items[id].count = invItem.count;
         items[id].itemGameObj.GetComponent<Image>().sprite = data.items[invItem.id].img;
+        items[id].price = invItem.price;
 
         if (invItem.count > 1 && invItem.id != 0)
         {
@@ -189,7 +190,7 @@ public class Inventory : MonoBehaviour
             movingObject.gameObject.SetActive(true);
             movingObject.GetComponent<Image>().sprite = data.items[currentItem.id].img;
 
-            AddItem(currentID, data.items[0], 0);
+            AddItem(currentID, data.items[0], 0, 0);
         }
         else
         {
@@ -209,7 +210,7 @@ public class Inventory : MonoBehaviour
                 }
                 else
                 {
-                    AddItem(currentID, data.items[II.id], II.count + currentItem.count - 16);
+                    AddItem(currentID, data.items[II.id], II.count + currentItem.count - 16, data.items[II.id].price);
 
                     II.count = 16;
                 }
@@ -238,8 +239,24 @@ public class Inventory : MonoBehaviour
         New.id = old.id;
         New.itemGameObj = old.itemGameObj;
         New.count = old.count;
+        New.price = old.price;
 
         return New;
+    }
+
+    public void ClearInventory()//Это сделал я(ЛЕХА) все вопросы ко мине
+    {
+        for (int i = 0; i < maxCount; i++)
+        {
+            if (items[i].id >= 1)
+            {
+                for(int f = 0; f < items[i].count; f++)
+                {
+                    Score.score += items[i].price;
+                }
+            }
+            AddItem(i, data.items[0], 1, 0);
+        }
     }
 }
 
@@ -251,4 +268,6 @@ public class ItemInventory
     public GameObject itemGameObj;
 
     public int count; //количество элементов
+    public int price;
+     
 }

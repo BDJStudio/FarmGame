@@ -33,10 +33,10 @@ public class Inventory : MonoBehaviour
             AddGraphics();
         }
 
-        for(int i = 0; i < maxCount; i++)//test
+/*        for(int i = 0; i < maxCount; i++)//test
         {
-            AddItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1, 16));
-        }
+            AddInventoryItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1, 16));
+        }*/
 
         UpdateInventory();
     }
@@ -91,7 +91,7 @@ public class Inventory : MonoBehaviour
             {
                 if(items[i].id == 0)
                 {
-                    AddItem(i, item, count);
+                    AddInventoryItem(i, item, count);
                     i = maxCount;
                 }
             }
@@ -107,7 +107,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void AddItem(int id, Item item, int count)
+    public void AddInventoryItem(int id, Item item, int count)
     {
         items[id].id = item.id;
         items[id].count = count;
@@ -189,7 +189,7 @@ public class Inventory : MonoBehaviour
             movingObject.gameObject.SetActive(true);
             movingObject.GetComponent<Image>().sprite = data.items[currentItem.id].img;
 
-            AddItem(currentID, data.items[0], 0);
+            AddInventoryItem(currentID, data.items[0], 0);
         }
         else
         {
@@ -209,7 +209,7 @@ public class Inventory : MonoBehaviour
                 }
                 else
                 {
-                    AddItem(currentID, data.items[II.id], II.count + currentItem.count - 16);
+                    AddInventoryItem(currentID, data.items[II.id], II.count + currentItem.count - 16);
 
                     II.count = 16;
                 }

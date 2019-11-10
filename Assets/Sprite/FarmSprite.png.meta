@@ -1,0 +1,1123 @@
+fileFormatVersion: 2
+guid: d3dffe41eafa27245a5015b49320979a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8039944416009057110
+    second: FarmSprite_0
+  - first:
+      213: -5282230598420068137
+    second: FarmSprite_1
+  - first:
+      213: -575775284782005363
+    second: FarmSprite_2
+  - first:
+      213: 6192331461816939751
+    second: FarmSprite_3
+  - first:
+      213: -7363816404916200900
+    second: FarmSprite_4
+  - first:
+      213: 7318652359379379341
+    second: FarmSprite_5
+  - first:
+      213: -324626560538605969
+    second: FarmSprite_6
+  - first:
+      213: -1948258157737591486
+    second: FarmSprite_7
+  - first:
+      213: -4701289852954895442
+    second: FarmSprite_8
+  - first:
+      213: -4536621330228307150
+    second: FarmSprite_9
+  - first:
+      213: 1209295916031369944
+    second: FarmSprite_10
+  - first:
+      213: 4775232993017461064
+    second: FarmSprite_11
+  - first:
+      213: -5896223897850783063
+    second: FarmSprite_12
+  - first:
+      213: -1439091468659886747
+    second: FarmSprite_13
+  - first:
+      213: -1034101667514412290
+    second: FarmSprite_14
+  - first:
+      213: -1885957404706083737
+    second: FarmSprite_15
+  - first:
+      213: -4566242907644321522
+    second: FarmSprite_16
+  - first:
+      213: -1324042682809982801
+    second: FarmSprite_17
+  - first:
+      213: 3395361777120884152
+    second: FarmSprite_18
+  - first:
+      213: -2277335659408357703
+    second: FarmSprite_19
+  - first:
+      213: -3394919420730832880
+    second: FarmSprite_20
+  - first:
+      213: -3886625056241180010
+    second: FarmSprite_21
+  - first:
+      213: -6117696845497851765
+    second: FarmSprite_22
+  - first:
+      213: 6990171428263859454
+    second: FarmSprite_23
+  - first:
+      213: 507182397793493167
+    second: FarmSprite_24
+  - first:
+      213: -1425821317265961506
+    second: FarmSprite_25
+  - first:
+      213: 2946895702094754480
+    second: FarmSprite_26
+  - first:
+      213: -1298216832684898608
+    second: FarmSprite_27
+  - first:
+      213: 4916728269893404807
+    second: FarmSprite_28
+  - first:
+      213: 8780898067301839856
+    second: FarmSprite_29
+  - first:
+      213: 8314505554747754212
+    second: FarmSprite_30
+  - first:
+      213: 5949825984681092515
+    second: FarmSprite_31
+  - first:
+      213: -4958353449907745237
+    second: FarmSprite_32
+  - first:
+      213: 3905629043204408049
+    second: FarmSprite_33
+  - first:
+      213: -4494097573711261569
+    second: FarmSprite_34
+  - first:
+      213: 7586826582645528865
+    second: FarmSprite_35
+  - first:
+      213: -2118416514782107522
+    second: FarmSprite_36
+  - first:
+      213: -8335930308820280393
+    second: FarmSprite_37
+  - first:
+      213: 913675167049905264
+    second: FarmSprite_38
+  - first:
+      213: -9178492805394121837
+    second: FarmSprite_39
+  - first:
+      213: -5332840594414354741
+    second: FarmSprite_40
+  - first:
+      213: 3099670450028934282
+    second: FarmSprite_41
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FarmSprite_0
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 3780
+        width: 248
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9960c44b82ccc4788fbb3566975f61
+      internalID: 8039944416009057110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_1
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 3787
+        width: 267
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fd3468de4878614db16aea6025cf1d9
+      internalID: -5282230598420068137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_2
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 3305
+        width: 675
+        height: 1032
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa3f2b566980074692085913d996c71
+      internalID: -575775284782005363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_3
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 3301
+        width: 621
+        height: 1032
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5e23fd3e3f48749be2f0fc5e39dc4e
+      internalID: 6192331461816939751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_4
+      rect:
+        serializedVersion: 2
+        x: 1994
+        y: 3305
+        width: 563
+        height: 1032
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe3dea62d0fa5749a6a9d8eaf36b752
+      internalID: -7363816404916200900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_5
+      rect:
+        serializedVersion: 2
+        x: 2567
+        y: 3305
+        width: 542
+        height: 1032
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13526ece0a887ba4abff6f1e1bd70b65
+      internalID: 7318652359379379341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_6
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 3309
+        width: 541
+        height: 1028
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 950abd03d43c7fd45825e86af8b08306
+      internalID: -324626560538605969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_7
+      rect:
+        serializedVersion: 2
+        x: 3692
+        y: 3301
+        width: 538
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0574f02b5ce77e4d8a8de5190526182
+      internalID: -1948258157737591486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_8
+      rect:
+        serializedVersion: 2
+        x: 4234
+        y: 3304
+        width: 541
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e2567dc126ebf45b12b6113a13a270
+      internalID: -4701289852954895442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_9
+      rect:
+        serializedVersion: 2
+        x: 4783
+        y: 3302
+        width: 538
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7ae72bd84adbb41bcaf1551a773f88
+      internalID: -4536621330228307150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_10
+      rect:
+        serializedVersion: 2
+        x: 5325
+        y: 3305
+        width: 538
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5254972b564c2f4a92dec3dd7619964
+      internalID: 1209295916031369944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_11
+      rect:
+        serializedVersion: 2
+        x: 5862
+        y: 3304
+        width: 538
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84204445555708f42aa9d30ac4c3a5d1
+      internalID: 4775232993017461064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_12
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 2288
+        width: 1339
+        height: 924
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb71eb1a593e92408b6d141ec1be685
+      internalID: -5896223897850783063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_13
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 2260
+        width: 643
+        height: 1002
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea3aa09de16a8347abc2fbfd04e809e
+      internalID: -1439091468659886747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_14
+      rect:
+        serializedVersion: 2
+        x: 2063
+        y: 2260
+        width: 572
+        height: 1002
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9279932d1a3b20c40a1d2471152ebaf8
+      internalID: -1034101667514412290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_15
+      rect:
+        serializedVersion: 2
+        x: 2650
+        y: 2260
+        width: 538
+        height: 1002
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ff968897d0c8c48b5cd50d7d8f03d1
+      internalID: -1885957404706083737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_16
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2256
+        width: 540
+        height: 1002
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75bbf61808c997d4f8ec754a55fafbab
+      internalID: -4566242907644321522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_17
+      rect:
+        serializedVersion: 2
+        x: 3738
+        y: 2256
+        width: 541
+        height: 1002
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0612cbad70558049a8c6072853e18c1
+      internalID: -1324042682809982801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_18
+      rect:
+        serializedVersion: 2
+        x: 4322
+        y: 2527
+        width: 526
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11145bde7c0233a4081f950b12e1c7ce
+      internalID: 3395361777120884152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_19
+      rect:
+        serializedVersion: 2
+        x: 4879
+        y: 2523
+        width: 522
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3b1dfa060b7704f82577cfdbc90746
+      internalID: -2277335659408357703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_20
+      rect:
+        serializedVersion: 2
+        x: 5428
+        y: 2531
+        width: 527
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1751282ce5272054e9fcda2df19302a7
+      internalID: -3394919420730832880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_21
+      rect:
+        serializedVersion: 2
+        x: 5981
+        y: 2531
+        width: 523
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 827fbc4357695dd49bfe76401cd57846
+      internalID: -3886625056241180010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_22
+      rect:
+        serializedVersion: 2
+        x: 6535
+        y: 2531
+        width: 526
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d59502e65651c33479e2e7fb66ac8ee9
+      internalID: -6117696845497851765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_23
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1201
+        width: 1803
+        height: 926
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a392071544a8d47b40eec331291ce6
+      internalID: 6990171428263859454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_24
+      rect:
+        serializedVersion: 2
+        x: 2173
+        y: 1497
+        width: 1595
+        height: 683
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c07dbea0327424498ff9caaa72ac7a4
+      internalID: 507182397793493167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_25
+      rect:
+        serializedVersion: 2
+        x: 4070
+        y: 1608
+        width: 496
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee7d4cf71d07c04791c0d28dfa1c36c
+      internalID: -1425821317265961506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323
+        width: 1720
+        height: 846
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9030c82378f82f6468ce31c713a5f7b5
+      internalID: 2946895702094754480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_27
+      rect:
+        serializedVersion: 2
+        x: 1895
+        y: 1120
+        width: 133
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39feb3bea7d51642b96ce1a1a92bca7
+      internalID: -1298216832684898608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_28
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 734
+        width: 1437
+        height: 717
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aacc47a4b63abe4d8944ce1d5a666d5
+      internalID: 4916728269893404807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_29
+      rect:
+        serializedVersion: 2
+        x: 3776
+        y: 772
+        width: 1248
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d79c31ca5b1c7e4683904df79a4fd53
+      internalID: 8780898067301839856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_30
+      rect:
+        serializedVersion: 2
+        x: 5665
+        y: 0
+        width: 2150
+        height: 1543
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bfe816fbf3653d49be889ddb4363deb
+      internalID: 8314505554747754212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_31
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 757
+        width: 239
+        height: 260
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50f22b31b3cbb64e86cd97cde1f8342
+      internalID: 5949825984681092515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_32
+      rect:
+        serializedVersion: 2
+        x: 1906
+        y: 212
+        width: 538
+        height: 461
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce3450ba5b28864d9828a0c5d57499f
+      internalID: -4958353449907745237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_33
+      rect:
+        serializedVersion: 2
+        x: 2467
+        y: 212
+        width: 538
+        height: 461
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c343700a63af042a09ab158f12d1df
+      internalID: 3905629043204408049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_34
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 212
+        width: 540
+        height: 457
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f186d98d5752d348b0891afcc512661
+      internalID: -4494097573711261569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_35
+      rect:
+        serializedVersion: 2
+        x: 3608
+        y: 212
+        width: 541
+        height: 457
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1c252ae3942184ebf4c48d766ceb3f
+      internalID: 7586826582645528865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_36
+      rect:
+        serializedVersion: 2
+        x: 4169
+        y: 212
+        width: 541
+        height: 457
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc4fcf9002cc334e8fb418e6aacfd04
+      internalID: -2118416514782107522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_37
+      rect:
+        serializedVersion: 2
+        x: 4875
+        y: 74
+        width: 645
+        height: 652
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8c7c7d9eb448d48ba06d7d6d8bb14c
+      internalID: -8335930308820280393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_38
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 1715
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756699386baf3c44dbccfc26275f6f9b
+      internalID: 913675167049905264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_39
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 3780
+        width: 248
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 843f58f6bd1713b4eab0c21d56942cfa
+      internalID: -9178492805394121837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_40
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 3363
+        width: 227
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489a376e5f1aecc41adbec943c52f786
+      internalID: -5332840594414354741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmSprite_41
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 3367
+        width: 250
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923f9e9c882c23243b1058cb56142c9b
+      internalID: 3099670450028934282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

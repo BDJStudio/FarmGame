@@ -33,10 +33,10 @@ public class Inventory : MonoBehaviour
             AddGraphics();
         }
 
-        for(int i = 0; i < maxCount; i++)//test
+/*        for(int i = 0; i < maxCount; i++)//test
         {
-            AddItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1, 16));
-        }
+            AddInventoryItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1, 16));
+        }*/
 
         UpdateInventory();
     }
@@ -61,7 +61,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void SearchForSameItem(Item item, int count)
+    public void SearchForSameItem(Item item, int count, int price)
     {
         for(int i=0; i < maxCount; i++)
         {
@@ -91,7 +91,7 @@ public class Inventory : MonoBehaviour
             {
                 if(items[i].id == 0)
                 {
-                    AddItem(i, item, count);
+                    AddInventoryItem(i, item, count, price);
                     i = maxCount;
                 }
             }
@@ -107,11 +107,12 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void AddItem(int id, Item item, int count)
+    public void AddInventoryItem(int id, Item item, int count, int price)
     {
         items[id].id = item.id;
         items[id].count = count;
         items[id].itemGameObj.GetComponent<Image>().sprite = item.img;
+        items[id].price = price;
 
         if(count > 1 && item.id != 0)
         {
@@ -189,7 +190,7 @@ public class Inventory : MonoBehaviour
             movingObject.gameObject.SetActive(true);
             movingObject.GetComponent<Image>().sprite = data.items[currentItem.id].img;
 
-            AddItem(currentID, data.items[0], 0);
+            AddInventoryItem(currentID, data.items[0], 0, 0);
         }
         else
         {
@@ -209,7 +210,7 @@ public class Inventory : MonoBehaviour
                 }
                 else
                 {
-                    AddItem(currentID, data.items[II.id], II.count + currentItem.count - 16);
+                    AddInventoryItem(currentID, data.items[II.id], II.count + currentItem.count - 16, 0);
 
                     II.count = 16;
                 }
@@ -241,6 +242,11 @@ public class Inventory : MonoBehaviour
 
         return New;
     }
+
+    public void ClearInventory()
+    {
+
+    }
 }
 
 [System.Serializable]
@@ -251,4 +257,5 @@ public class ItemInventory
     public GameObject itemGameObj;
 
     public int count; //количество элементов
+    public int price;
 }

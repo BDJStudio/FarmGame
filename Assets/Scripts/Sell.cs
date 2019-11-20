@@ -10,7 +10,6 @@ public class Sell : MonoBehaviour
     public Inventory inv;
     //Потом удалить
     bool check = false;
-    //////////
     
     void Update()
     {

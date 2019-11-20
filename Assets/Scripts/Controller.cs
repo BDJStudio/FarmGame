@@ -33,7 +33,7 @@ public class Controller : MonoBehaviour
 	Rigidbody2D rb;
 	Rigidbody2D poplavokRb; //rb поплавка
 
-	//fishingScript fishingScript;
+	fishingScript fishingScript;
 
 	Vector2 powerFishing = new Vector2(10f, 10f);//сила броска;
 
@@ -60,7 +60,7 @@ public class Controller : MonoBehaviour
 		trans = GetComponent<Transform>();
 		collide = GetComponent<CapsuleCollider2D>();
 		collideForPoplav = GetComponent<BoxCollider2D>();
-		//fishingScript = GetComponent<fishingScript>();
+		fishingScript = GetComponent<fishingScript>();
 		startSpR = poplavok.GetComponent<SpriteRenderer>();
 
 		
@@ -90,12 +90,12 @@ public class Controller : MonoBehaviour
 		}
 
 
-		/*switch(fishingScript.fishingTime)
+		switch(fishingScript.fishingTime) // nado yslovie
 		{
 			case 1:
 				poplavokRb.AddForce(new Vector2(0, -0.05f), ForceMode2D.Impulse);
 				break;
-		}*/
+		}
 
 
 
@@ -165,6 +165,7 @@ public class Controller : MonoBehaviour
 	{
 		boolForButton = true;
 	}
+
 	public void stopButtonFishing()
 	{
 
@@ -190,8 +191,8 @@ public class Controller : MonoBehaviour
 				//poplavok.GetComponent<SpriteRenderer>().sprite = startSpR.sprite;
 
 
-				//fishingScript.StartCoroutine(fishingScript.checkFishfor());
-				//fishingScript.fishingTime = UnityEngine.Random.Range(5, 10);//рандомное время для вылавливания рыбы
+				fishingScript.StartCoroutine(fishingScript.checkFishfor());
+				fishingScript.fishingTime = UnityEngine.Random.Range(5, 10);//рандомное время для вылавливания рыбы
 
 				if (powerFishing.x < 0)
 				{
@@ -255,12 +256,12 @@ public class Controller : MonoBehaviour
 					Destroy(newPoplavok);
 					throwed = false;
 
-					/*fishingScript.StopAllCoroutines();
+					fishingScript.StopAllCoroutines();
 
 					if (fishingScript.catched)
 					{
 						fishingScript.getFish();
-					}*/
+					}
 
 				}
 

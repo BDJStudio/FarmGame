@@ -773,9 +773,9 @@ TextureImporter:
       name: FarmSprite_26
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 323
-        width: 1720
+        width: 1713
         height: 846
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1072,7 +1072,7 @@ TextureImporter:
         width: 227
         height: 415
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1093,7 +1093,7 @@ TextureImporter:
         width: 250
         height: 419
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

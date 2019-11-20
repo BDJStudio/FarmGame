@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class GlTime : MonoBehaviour
 {
-    public int hour;// = 60 мин
-    public int minute; // = 6 сек
-    public float second; // = 1 сек
-    public int day;// = 24 часа
+    public int hour;
+    public int minute; 
+    public float second; 
+    public int day;
 
     void Start()
     {
-        hour = 0; //Random.Range(0, 23);
-        minute = 0; //Random.Range(0, 14);
+        hour = 0;
+        minute = 0;
     }
 
     void Update()
     {
         second += Time.deltaTime;
-        if(second >= 6f)//6 сек = минута
+        if (second >= 1f)//1 сек = минута
         {
             second = 0;
             minute += 1;
         }
-        if (minute >= 60)//60 мин = 1 час
+        if (minute >= 60)//60 сек = 1 час
         {
             minute = 0;
             hour += 1;
         }
-        if (hour >= 24)
+        if (hour >= 24)//24 минуты = 1 день
         {
             hour = 0;
             day += 1;

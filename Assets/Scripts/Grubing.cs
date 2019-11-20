@@ -5,54 +5,38 @@ using UnityEngine;
 public class Grubing : MonoBehaviour
 {
     public GameObject activate;
+    public bool isDelete;
+    public int ID_items; // тут пишем ИД итема из датабейс овоща который собираемся давать
 
-    public ActiveBttns bttns;
-    public GlTime gltim;
-    public Sprite[] ground;
-
-    private int time;
+    private DataBase db;
+    private Inventory inv;
+    private GameObject growth;
 
     public void Start()
     {
-        activate.SetActive(false);
-        gltim.minute = time;
+        inv = GameObject.Find("Main Camera").GetComponent<Inventory>();
+        db = GameObject.Find("Main Camera").GetComponent<DataBase>();
     }
 
-    public void OnTriggerStay2D(Collider2D collision)
+    public void OnMouseDown()
     {
-        if (collision.tag == "Player")
+        // при нажатии на кнопку ище в инвентаре нужные семена и их колл-во
+        inv.SearchItems(db.items[ID_items], 1);
+
+        // тут мы их садим
+        if (inv.searchBool)
         {
-            activate.SetActive(true);
+            Instantiate(activate, transform.position + new Vector3(2, -3.2f, 0), Quaternion.identity);
+            StartCoroutine(Delete());
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
+
+    // функция прячет кнопку
+    IEnumerator Delete()
     {
-        if (collision.tag == "Player")
-        {
-            activate.SetActive(false);
-        }
-    }
-
-    public void Update()
-    {
-        if (bttns.wet == true)
-        {
-            switch (gltim.minute)
-            {
-                case 1:
-                    GetComponent<SpriteRenderer>().sprite = ground[0];
-
-                    break;
-                case 2:
-                    GetComponent<SpriteRenderer>().sprite = ground[1];
-
-                    break;
-                case 3:
-                    GetComponent<SpriteRenderer>().sprite = ground[2];
-
-                    break;
-            }
-        }
+        yield return new WaitForSeconds(0.3f);
+        gameObject.SetActive(false);
+        isDelete = true;
     }
 }

@@ -40,12 +40,12 @@ public class Cam : MonoBehaviour
             Vector3 target;
             if (isLeft)
             {
-                target = new Vector3(Mathf.Clamp(player.position.x - offset.x, -ogranichenie, ogranichenie), transform.position.y, transform.position.z);
+                target = new Vector3(Mathf.Clamp(player.position.x - offset.x, -ogranichenie, ogranichenie), player.position.y, transform.position.z);
                 
             }
             else
             {
-                target = new Vector3(Mathf.Clamp(player.position.x + offset.x, -ogranichenie, ogranichenie), transform.position.y, transform.position.z);
+                target = new Vector3(Mathf.Clamp(player.position.x + offset.x, -ogranichenie, ogranichenie), player.position.y, transform.position.z);
             }
 
             Vector3 currentPosition = Vector3.Lerp(transform.position, target, dumping * Time.deltaTime);

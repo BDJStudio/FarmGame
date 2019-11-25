@@ -5,7 +5,6 @@ using UnityEngine;
 public class PickUPBttn : MonoBehaviour
 {
     //это скрипт кнопки которая собирает урожай и добовляет его в инвентарь
-
     private DataBase db;
     private Inventory inv;
     private GameObject father; // сюда пишем имя префаба, что бы после сбора он удалился со сцены
@@ -29,7 +28,6 @@ public class PickUPBttn : MonoBehaviour
         {
             inv.SearchForSameItem(db.items[ID_items], 9, db.items[ID_items].price);
             inv.UpdateInventory();
-
             StartCoroutine(Delete());
         }
     }

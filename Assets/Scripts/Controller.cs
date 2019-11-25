@@ -56,7 +56,9 @@ public class Controller : MonoBehaviour
 	void Start()
 	{
 
-		rb = GetComponent<Rigidbody2D>();
+        transform.position = Load.LoadVector2(name);//Перемещаем игрока на предыдущие координаты
+
+        rb = GetComponent<Rigidbody2D>();
 		trans = GetComponent<Transform>();
 		collide = GetComponent<CapsuleCollider2D>();
 		collideForPoplav = GetComponent<BoxCollider2D>();
@@ -71,16 +73,17 @@ public class Controller : MonoBehaviour
 		transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
 		speedX = -horizontalSpeed;
 	}
+
 	public void RightButtonDown()
 	{
 		speedX = horizontalSpeed;
 		transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 	}
+
 	public void Stop()
 	{
 		speedX = 0;
 	}
-
 
 	public void Update()
 	{
@@ -89,15 +92,12 @@ public class Controller : MonoBehaviour
 			updateForThrow();
 		}
 
-
 		switch(fishingScript.fishingTime) // nado yslovie
 		{
 			case 1:
 				poplavokRb.AddForce(new Vector2(0, -0.05f), ForceMode2D.Impulse);
 				break;
 		}
-
-
 
 		water.surfaceLevel = 0.7f - power;
 
@@ -107,7 +107,6 @@ public class Controller : MonoBehaviour
 	public IEnumerator bulk()
 	{
 		yield return new WaitForSeconds(0.5f);
-
 	}
 
 	public void FixedUpdate()
@@ -119,7 +118,6 @@ public class Controller : MonoBehaviour
 	{
 		//тут пишем тригеры))
 	}
-
 
 	async void updateForThrow()
 	{
@@ -133,7 +131,6 @@ public class Controller : MonoBehaviour
 		bool powerToBack = true;
 		boolForButton = true;
 
-
 		if (!throwed)
 		{
 			if (power <= powerPredel && powerToBack == true)
@@ -146,7 +143,6 @@ public class Controller : MonoBehaviour
 			}
 		}
 
-
 		if (powerToBack == false)
 		{
 			power--;
@@ -157,8 +153,6 @@ public class Controller : MonoBehaviour
 		}
 
 		print(power);
-
-
 	}
 
 	public void startButtonFishing()
@@ -174,7 +168,6 @@ public class Controller : MonoBehaviour
 		power *= throwMultiplyer;
 
 		fishing();
-
 	}
 
 	public void fishing()
@@ -216,8 +209,6 @@ public class Controller : MonoBehaviour
 			poplavokRb = newPoplavok.GetComponent<Rigidbody2D>();
 			transPoplavok = newPoplavok.GetComponent<Transform>();
 
-
-
 			Vector2 backVector = new Vector2(trans.position.x - transPoplavok.position.x, trans.position.y - transPoplavok.position.y);//Вычисление направления к игроку
 
 			poplavokRb.AddForce(powerFishing);//создание и бросок
@@ -228,8 +219,6 @@ public class Controller : MonoBehaviour
 		{
 			poplavokRb.AddForceAtPosition(-(transPoplavok.position - trans.localPosition) * 15f, trans.localPosition);//притягивание поплавка назад
 		}
-
-
 	}
 	void deletePoplavok()
 	{
@@ -245,9 +234,6 @@ public class Controller : MonoBehaviour
 			}
 		}
 		catch { }
-
-
-
 		if (newPoplavok)
 		{
 			{
@@ -276,4 +262,14 @@ public class Controller : MonoBehaviour
 			}
 		}
 	}
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private void OnApplicationPause(bool pause)
+    {
+        Save.SaveVector3(name, transform.position);
+    }
+#endif
+    private void OnApplicationQuit()
+    {
+        Save.SaveVector3(name, transform.position);//Сохраняем местоположение перед выходом из игры
+    }
 }

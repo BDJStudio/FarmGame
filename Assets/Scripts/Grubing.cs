@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Grubing : MonoBehaviour
 {
+
     public GameObject activate;
     public bool isDelete;
     public int ID_items; // тут пишем ИД итема из датабейс овоща который собираемся давать
@@ -12,7 +13,7 @@ public class Grubing : MonoBehaviour
     private Inventory inv;
     private GameObject growth;
 
-    public void Start()
+    public void Start() 
     {
         inv = GameObject.Find("Main Camera").GetComponent<Inventory>();
         db = GameObject.Find("Main Camera").GetComponent<DataBase>();

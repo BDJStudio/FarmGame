@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GlTime : MonoBehaviour
 {
@@ -9,10 +10,16 @@ public class GlTime : MonoBehaviour
     public float second; 
     public int day;
 
+    public Text timeWorld;
+
+    public Jobs jb;
+
     void Start()
     {
         hour = 0;
         minute = 0;
+        second = 0;
+        day = Load.LoatGlTimeDay("GlTimeDay");
     }
 
     void Update()
@@ -32,8 +39,24 @@ public class GlTime : MonoBehaviour
         {
             hour = 0;
             day += 1;
+
+            if (day % 2 == 0)
+            {
+                jb.Ferb();
+            }
+            else
+            {
+                GlTimeDay.day++;
+                jb.UpdateJobs();
+            }
+
+            if (day > 1)
+            {
+                timeWorld.text = "День " + (day - 1).ToString();
+            }
+            else
+                timeWorld.text = "День " + day.ToString();
         }
     }
 
-    
 }

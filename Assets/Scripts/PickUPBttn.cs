@@ -12,7 +12,7 @@ public class PickUPBttn : MonoBehaviour
 
     public string namePref;
     public int ID_items; // тут пишем ИД итема из датабейс овоща который собираемся давать
-    public GameObject wheat1, wheat2, wheat3;
+    public GameObject sp1, sp2, sp3;
 
     void Start()
     {
@@ -23,9 +23,9 @@ public class PickUPBttn : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (wheat1.GetComponent<Growth>().Pick == true &&
-            wheat2.GetComponent<Growth>().Pick == true &&
-            wheat3.GetComponent<Growth>().Pick == true)
+        if (sp1.GetComponent<Growth>().Pick == true &&
+            sp2.GetComponent<Growth>().Pick == true &&
+            sp3.GetComponent<Growth>().Pick == true)
         {
             inv.SearchForSameItem(db.items[ID_items], 9, db.items[ID_items].price);
             inv.UpdateInventory();
@@ -36,15 +36,15 @@ public class PickUPBttn : MonoBehaviour
 
     IEnumerator Delete()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
 
         Destroy(father);
     }
 
     public void OnMouseUp()
     {
-        wheat1.GetComponent<Growth>().Pick = false;
-        wheat2.GetComponent<Growth>().Pick = false;
-        wheat3.GetComponent<Growth>().Pick = false;
+        sp1.GetComponent<Growth>().Pick = false;
+        sp2.GetComponent<Growth>().Pick = false;
+        sp3.GetComponent<Growth>().Pick = false;
     }
 }

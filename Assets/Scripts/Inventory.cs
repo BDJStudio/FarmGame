@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
 
     public GameObject background;
 
-    public bool searchBool;
+    public int searchINT;
 
     public void Start()
     {
@@ -74,7 +74,7 @@ public class Inventory : MonoBehaviour
                     if (items[i].count > 32)
                     {
                         count = items[i].count - 32;
-                        items[i].count = 16;
+                        items[i].count = 32;//было в половину меньше
                     }
                     else
                     {
@@ -263,16 +263,23 @@ public class Inventory : MonoBehaviour
 
     public void SearchItems(Item item, int count) // функция поиска нажного итема и его колличества в инвентаре
     {
+        int n = 0;
+
         for (int i = 0; i < maxCount; i++)
         {
-            if (items[i].id == item.id && items[i].count >= count)
+            if (items[i].id == item.id)
             {
-                searchBool = true;
+                n++;
 
-                if (items[i].count > 1)
-                    items[i].count--;
-                else
-                    AddItem(i, data.items[0], 1, 0);
+                if (items[i].count >= count && n <= 1)
+                {
+                    searchINT = items[i].id;
+
+                    if (items[i].count > 1)
+                        items[i].count--;
+                    else
+                        AddItem(i, data.items[0], 1, 0);
+                }
             }
         }
     }

@@ -1,35 +1,27 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using UnityEngine.SceneManagement;
 using System.Threading;
 using System.Threading.Tasks;
 
 public class Controller : MonoBehaviour
 {
 	public GameObject poplavok;//поплавок для клонирования
-
-	public BuoyancyEffector2D water;
-
-	public SpriteRenderer fishSprite;//Объект, на который кидаем спрайт рыбы
-
-	public GlTime timeCount;
-
-	public GameObject newSpriteFish;
+    public BuoyancyEffector2D water;
+    public SpriteRenderer fishSprite;//Объект, на который кидаем спрайт рыбы
+    public GlTime timeCount;
+    public GameObject newSpriteFish;
 
 	GameObject newPoplavok;//поплавок, который кидаем
-
-
-	CapsuleCollider2D collide;
-
-	BoxCollider2D collideForPoplav;//чекер для удаления поплавка
+    CapsuleCollider2D collide;
+    BoxCollider2D collideForPoplav;//чекер для удаления поплавка
 	BoxCollider2D colliderOnPoplav;//коллайдер на поплавке
 
 	SpriteRenderer startSpR;
-
-	Transform trans;
+    Transform trans;
 	Transform transPoplavok;
 
+    Animator anim;
 	Rigidbody2D rb;
 	Rigidbody2D poplavokRb; //rb поплавка
 
@@ -41,85 +33,88 @@ public class Controller : MonoBehaviour
 	const float minRange = 30f;//начальная точка отсчёта для броска поплавка;
 
 	public float horizontalSpeed;
-
-	public float power = 1f;
-
-	public bool poplavokInWater = false;
+    public float power, powBack;
+    public bool poplavokInWater = false;
 
 	float powerPredel = 100f;
-
 	float speedX;
-
-	bool boolForButton = false;
+    bool boolForButton = false;
 	bool throwed = false;
 
-	void Start()
-	{
+    public float n;
 
-		rb = GetComponent<Rigidbody2D>();
+    void Start()
+	{
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 		trans = GetComponent<Transform>();
 		collide = GetComponent<CapsuleCollider2D>();
 		collideForPoplav = GetComponent<BoxCollider2D>();
 		fishingScript = GetComponent<fishingScript>();
 		startSpR = poplavok.GetComponent<SpriteRenderer>();
-
-		
 	}
 
 	public void LeftButtonDown()
 	{
-		transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
+        anim.SetBool("BoolRun", true);
+
+		transform.localScale = new Vector3(-1, 1, 1);
 		speedX = -horizontalSpeed;
 	}
+
 	public void RightButtonDown()
 	{
-		speedX = horizontalSpeed;
-		transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        anim.SetBool("BoolRun", true);
+        speedX = horizontalSpeed;
+		transform.localScale = new Vector3(1, 1, 1);
 	}
+
 	public void Stop()
 	{
-		speedX = 0;
+        anim.SetBool("BoolRun", false);
+        speedX = 0;
 	}
 
-
-	public void Update()
+    public void Update()
 	{
+        n += Time.deltaTime;
+
 		if (boolForButton)
 		{
 			updateForThrow();
 		}
 
+        if (n >= 10 && n <= 11 && anim.GetBool("BoolRun") == false && anim.GetBool("BoolGrub") == false )
+        {
+            anim.SetBool("Idle", true);
+        }
+        else if (n > 11 || anim.GetBool("BoolGrub") == true)
+        {
+            n = 0;
+            anim.SetBool("Idle", false);
+        }
 
-		switch(fishingScript.fishingTime) // nado yslovie
+        /*if(fishingScript.fishingTime <= 1)
 		{
-			case 1:
-				poplavokRb.AddForce(new Vector2(0, -0.05f), ForceMode2D.Impulse);
-				break;
+            poplavokRb.AddForce(new Vector2(0, -0.05f), ForceMode2D.Impulse);
 		}
+        */
+        switch (fishingScript.fishingTime) // nado yslovie 
+        {
+            case 1:
+                poplavokRb.AddForce(new Vector2(0, -0.05f), ForceMode2D.Impulse);
+                break;
+        }
 
-
-
-		water.surfaceLevel = 0.7f - power;
+        water.surfaceLevel = 0.7f - power;
 
 		deletePoplavok();
-	}
-
-	public IEnumerator bulk()
-	{
-		yield return new WaitForSeconds(0.5f);
-
 	}
 
 	public void FixedUpdate()
 	{
 		transform.Translate(speedX, 0, 0);
 	}
-
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		//тут пишем тригеры))
-	}
-
 
 	async void updateForThrow()
 	{
@@ -156,13 +151,14 @@ public class Controller : MonoBehaviour
 			}
 		}
 
-		print(power);
+		//print(power);
 
 
 	}
 
 	public void startButtonFishing()
 	{
+        // нужно условие границ рыбалки, пруда
 		boolForButton = true;
 	}
 
@@ -226,7 +222,7 @@ public class Controller : MonoBehaviour
 		else
 
 		{
-			poplavokRb.AddForceAtPosition(-(transPoplavok.position - trans.localPosition) * 15f, trans.localPosition);//притягивание поплавка назад
+			poplavokRb.AddForceAtPosition(-(transPoplavok.position - trans.localPosition) * powBack, trans.localPosition);//притягивание поплавка назад
 		}
 
 

@@ -48,6 +48,7 @@ public class Market : MonoBehaviour
             Score.score -= data.items[2].price;
         }
     }
+
     public void ClickOkTree()
     {
         if (Score.score >= data.items[3].price)
@@ -56,6 +57,17 @@ public class Market : MonoBehaviour
             inv.UpdateInventory();
 
             Score.score -= data.items[3].price;
+        }
+    }
+
+    public void ClickOkFour()
+    {
+        if (Score.score >= data.items[4].price)
+        {
+            inv.SearchForSameItem(data.items[4], 1, data.items[4].price);
+            inv.UpdateInventory();
+
+            Score.score -= data.items[4].price;
         }
     }
 

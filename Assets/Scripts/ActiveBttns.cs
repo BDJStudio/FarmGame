@@ -6,9 +6,37 @@ public class ActiveBttns : MonoBehaviour
 {
     public GameObject Bttn;
     public bool isPickButtn;
-    public bool PickUp;
+    public bool PickUp, isWheat, isCarrot, isTomato, isPotato;
 
     public GameObject[] arr;
+    public GameObject bttn;
+
+    public void Start()
+    {
+        if (!isPickButtn)
+        {
+            if (isWheat)
+            {
+                bttn = GameObject.Find("Bttn_Grubing_Wheat");
+            }
+
+            if (isCarrot)
+            {
+                bttn = GameObject.Find("Bttn_Grubing_Carrot");
+            }
+
+            if (isTomato)
+            {
+                bttn = GameObject.Find("Bttn_Grubing_Tomato");
+            }
+
+            if (isPotato)
+            {
+                bttn = GameObject.Find("Bttn_Grubing_Potato");
+            }
+        }
+        
+    }
 
     public void Update()
     {
@@ -39,6 +67,10 @@ public class ActiveBttns : MonoBehaviour
             if (collision.tag == "Player" && !Bttn.GetComponent<Grubing>().isDelete)
             {
                 Bttn.SetActive(true);
+            }
+            else
+            {
+                Bttn.SetActive(false);
             }
         }
 

@@ -36,6 +36,10 @@ public class Inventory : MonoBehaviour
         }
 
 
+        for (int i = 0; i < maxCount; i++)//Загрузка инвентаря из сохранения
+        {
+            AddItem(i, data.items[Load.LoadInventory(i + "InventoryId")], Load.LoadInventory(i + "InventoryCount"), Load.LoadInventory(i + "InventoryPrice"));
+        }
 
         UpdateInventory();
     }
@@ -84,7 +88,6 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-
         if (count > 0)
         {
             for (int i = 0; i < maxCount; i++)
@@ -205,15 +208,15 @@ public class Inventory : MonoBehaviour
             }
             else
             {
-                if (II.count + currentItem.count <= 16)
+                if (II.count + currentItem.count <= 32)
                 {
                     II.count += currentItem.count;
                 }
                 else
                 {
-                    AddItem(currentID, data.items[II.id], II.count + currentItem.count - 16, data.items[II.id].price);
+                    AddItem(currentID, data.items[II.id], II.count + currentItem.count - 32, data.items[II.id].price);
 
-                    II.count = 16;
+                    II.count = 32;
                 }
 
                 II.itemGameObj.GetComponentInChildren<Text>().text = II.count.ToString();
@@ -256,8 +259,32 @@ public class Inventory : MonoBehaviour
                     Score.score += items[i].price;
                 }
             }
-
+            if (items[i].id == 1)
+            {
+                for (int f = 0; f < items[i].count; f++)
+                {
+                    Jobs.scoreTree--;
+                }
+            }
             AddItem(i, data.items[0], 1, 0);
+        }
+    }
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private void OnApplicationPause(bool pause)
+    {
+        for (int i = 0; i < maxCount; i++)
+        {
+            Save.SaveInventory(i + "Inventory", items[i].id, items[i].count, items[i].price);
+        }
+    }
+#endif
+
+    public void OnApplicationQuit()//Сохранение инвенатя при выходе из игры
+    {
+        for (int i = 0; i < maxCount; i++)
+        {
+            Save.SaveInventory(i + "Inventory", items[i].id, items[i].count, items[i].price);
         }
     }
 

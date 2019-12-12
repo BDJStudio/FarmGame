@@ -11,7 +11,7 @@ public class Grubing : MonoBehaviour
     private DataBase db;
     private Inventory inv;
 
-    public void Start()
+    public void Start() 
     {
         inv = GameObject.Find("Main Camera").GetComponent<Inventory>();
         db = GameObject.Find("Main Camera").GetComponent<DataBase>();
@@ -26,7 +26,7 @@ public class Grubing : MonoBehaviour
         if (inv.searchINT == ID_items)
         {
             player.GetComponent<Animator>().SetBool("BoolGrub", true);
-            Instantiate(activate, transform.position + new Vector3(2, -5.1f, 0), Quaternion.identity);
+            Instantiate(activate, transform.position + new Vector3(2, -2.2f, 0), Quaternion.identity);
             StartCoroutine(Delete());
         }
     }

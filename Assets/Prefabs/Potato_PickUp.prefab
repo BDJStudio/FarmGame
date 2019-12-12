@@ -212,7 +212,12 @@ MonoBehaviour:
   Bttn: {fileID: 7946594291221165443}
   isPickButtn: 1
   PickUp: 0
+  isWheat: 0
+  isCarrot: 0
+  isTomato: 0
+  isPotato: 0
   arr: []
+  bttn: {fileID: 0}
 --- !u!1 &4108114642392085954
 GameObject:
   m_ObjectHideFlags: 0

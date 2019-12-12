@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Threading;
@@ -42,9 +43,14 @@ public class Controller : MonoBehaviour
 	bool throwed = false;
 
     public float n;
+    public GameObject activ;
+    public GameObject Bttn_Fishing;
+
+    public Sprite[] buttons;
 
     void Start()
 	{
+        activ.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 		trans = GetComponent<Transform>();
@@ -52,7 +58,9 @@ public class Controller : MonoBehaviour
 		collideForPoplav = GetComponent<BoxCollider2D>();
 		fishingScript = GetComponent<fishingScript>();
 		startSpR = poplavok.GetComponent<SpriteRenderer>();
-	}
+
+        transform.position = Load.LoadVector2(name);
+    }
 
 	public void LeftButtonDown()
 	{
@@ -106,7 +114,7 @@ public class Controller : MonoBehaviour
                 break;
         }
 
-        water.surfaceLevel = 0.7f - power;
+		water.surfaceLevel = 0.7f - power;
 
 		deletePoplavok();
 	}
@@ -128,7 +136,6 @@ public class Controller : MonoBehaviour
 		bool powerToBack = true;
 		boolForButton = true;
 
-
 		if (!throwed)
 		{
 			if (power <= powerPredel && powerToBack == true)
@@ -141,7 +148,6 @@ public class Controller : MonoBehaviour
 			}
 		}
 
-
 		if (powerToBack == false)
 		{
 			power--;
@@ -152,25 +158,28 @@ public class Controller : MonoBehaviour
 		}
 
 		//print(power);
-
-
 	}
 
 	public void startButtonFishing()
 	{
         // нужно условие границ рыбалки, пруда
-		boolForButton = true;
+        if (transform.position.x < 10f && transform.position.x > -16f)
+        {
+            boolForButton = true;
+            activ.SetActive(true);
+
+        }
 	}
 
 	public void stopButtonFishing()
 	{
+        if (transform.position.x < 10f && transform.position.x > -16f)
+        {
+            boolForButton = false;
+            power *= throwMultiplyer;
 
-		boolForButton = false;
-
-		power *= throwMultiplyer;
-
-		fishing();
-
+            fishing();
+        }
 	}
 
 	public void fishing()
@@ -212,8 +221,6 @@ public class Controller : MonoBehaviour
 			poplavokRb = newPoplavok.GetComponent<Rigidbody2D>();
 			transPoplavok = newPoplavok.GetComponent<Transform>();
 
-
-
 			Vector2 backVector = new Vector2(trans.position.x - transPoplavok.position.x, trans.position.y - transPoplavok.position.y);//Вычисление направления к игроку
 
 			poplavokRb.AddForce(powerFishing);//создание и бросок
@@ -224,16 +231,15 @@ public class Controller : MonoBehaviour
 		{
 			poplavokRb.AddForceAtPosition(-(transPoplavok.position - trans.localPosition) * powBack, trans.localPosition);//притягивание поплавка назад
 		}
-
-
 	}
 	void deletePoplavok()
 	{
-		try
+        try
 		{
 			if (newPoplavok.GetComponent<BoxCollider2D>().IsTouching(water.GetComponent<BoxCollider2D>()))
-			{
-				poplavokInWater = true;
+            {
+                Bttn_Fishing.GetComponent<Image>().sprite = buttons[1];
+                poplavokInWater = true;
 			}
 			else
 			{
@@ -241,9 +247,6 @@ public class Controller : MonoBehaviour
 			}
 		}
 		catch { }
-
-
-
 		if (newPoplavok)
 		{
 			{
@@ -252,7 +255,10 @@ public class Controller : MonoBehaviour
 					Destroy(newPoplavok);
 					throwed = false;
 
-					fishingScript.StopAllCoroutines();
+                    activ.SetActive(false);
+                    Bttn_Fishing.GetComponent<Image>().sprite = buttons[0];
+
+                    fishingScript.StopAllCoroutines();
 
 					if (fishingScript.catched)
 					{
@@ -272,4 +278,14 @@ public class Controller : MonoBehaviour
 			}
 		}
 	}
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private void OnApplicationPause(bool pause)
+    {
+        Save.SaveVector3(name, transform.position);
+    }
+#endif
+    public void OnApplicationQuit()
+    {
+        Save.SaveVector3(name, transform.position);//Сохраняем местоположение перед выходом из игры
+    }
 }

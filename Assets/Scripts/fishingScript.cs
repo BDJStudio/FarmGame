@@ -76,7 +76,7 @@ public class fishingScript : MonoBehaviour
 		if (fishingTime == 0)
 		{
 			
-			catchFishID = Random.Range(5, 6);// рандом выпадания ИД итемов из списка
+			catchFishID = Random.Range(5, 7);// рандом выпадания ИД итемов из списка
 			/*if (catchFishID < fishes / 2)
 			{
 				catchFishID = Random.Range(0, fishes);

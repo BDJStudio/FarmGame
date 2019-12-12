@@ -74,7 +74,12 @@ MonoBehaviour:
   Bttn: {fileID: 5586316094277269871}
   isPickButtn: 0
   PickUp: 0
+  isWheat: 0
+  isCarrot: 0
+  isTomato: 0
+  isPotato: 0
   arr: []
+  bttn: {fileID: 0}
 --- !u!1 &5586316094277269871
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5586316094277269871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.119999886, y: 2.12, z: 0}
+  m_LocalPosition: {x: 0, y: -0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5586316093556225224}
@@ -145,7 +150,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -4243634286551450669, guid: d3dffe41eafa27245a5015b49320979a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.8745098}
@@ -171,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activate: {fileID: 885997529667665264, guid: 42b044337d2264946a87cfb9c80d8653, type: 3}
+  player: {fileID: 0}
   isDelete: 0
   ID_items: 3
 --- !u!58 &4508457283674323551

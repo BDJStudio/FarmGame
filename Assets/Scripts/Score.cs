@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Score : MonoBehaviour
 {
@@ -10,12 +11,27 @@ public class Score : MonoBehaviour
     void Start()
     {
         scoreText = GetComponent<Text>();
-        score = 1000;
+        score = Load.LoadScore("GUImoney");//Загружем данные из сохранения
+        //Каждый заход в игру даем себе 100р.
+        //score = 100;
+        ///////////////
+        
     }
-
 
     void Update()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = score.ToString();
     }
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private void OnApplicationPause(bool pause)
+    {
+        if(pause) Save.SaveScore("GUImoney", score);
+    }
+#endif
+    public void OnApplicationQuit()
+    {
+        Save.SaveScore("GUImoney", score);//Сохраняем данные в сохранение
+    }
+
 }

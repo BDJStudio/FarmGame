@@ -12,9 +12,13 @@ public class GlTime : MonoBehaviour
 
     public Text timeWorld;
 
+    public Jobs jb;
+
     void Start()
     {
         day = 1;
+        second = 0;
+        day = Load.LoatGlTimeDay("GlTimeDay");
     }
 
     void Update()
@@ -34,6 +38,22 @@ public class GlTime : MonoBehaviour
         {
             hour = 0;
             day += 1;
+
+            if (day % 2 == 0)
+            {
+                jb.Ferb();
+            }
+            else
+            {
+                jb.UpdateJobs();
+            }
+
+            if (day > 1)
+            {
+                timeWorld.text = "День " + (day - 1).ToString();
+            }
+            else
+                timeWorld.text = "День " + day.ToString();
         }
 
         if (day > 1)
@@ -43,5 +63,15 @@ public class GlTime : MonoBehaviour
             timeWorld.text = "День " + day.ToString();
     }
 
-    
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private void OnApplicationPause(bool pause)
+    {
+        Save.SaveGlTimeDay("GlTimeDay", day);
+    }
+#endif
+
+    public void OnApplicationQuit()
+    {
+        Save.SaveGlTimeDay("GlTimeDay", day);//Сохраняем данные в сохранение
+    }
 }

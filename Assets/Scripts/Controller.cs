@@ -1,35 +1,28 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
-using UnityEngine.SceneManagement;
 using System.Threading;
 using System.Threading.Tasks;
 
 public class Controller : MonoBehaviour
 {
 	public GameObject poplavok;//поплавок для клонирования
-
-	public BuoyancyEffector2D water;
-
-	public SpriteRenderer fishSprite;//Объект, на который кидаем спрайт рыбы
-
-	public GlTime timeCount;
-
-	public GameObject newSpriteFish;
+    public BuoyancyEffector2D water;
+    public SpriteRenderer fishSprite;//Объект, на который кидаем спрайт рыбы
+    public GlTime timeCount;
+    public GameObject newSpriteFish;
 
 	GameObject newPoplavok;//поплавок, который кидаем
-
-
-	CapsuleCollider2D collide;
-
-	BoxCollider2D collideForPoplav;//чекер для удаления поплавка
+    CapsuleCollider2D collide;
+    BoxCollider2D collideForPoplav;//чекер для удаления поплавка
 	BoxCollider2D colliderOnPoplav;//коллайдер на поплавке
 
 	SpriteRenderer startSpR;
-
-	Transform trans;
+    Transform trans;
 	Transform transPoplavok;
 
+    Animator anim;
 	Rigidbody2D rb;
 	Rigidbody2D poplavokRb; //rb поплавка
 
@@ -41,82 +34,94 @@ public class Controller : MonoBehaviour
 	const float minRange = 30f;//начальная точка отсчёта для броска поплавка;
 
 	public float horizontalSpeed;
-
-	public float power = 1f;
-
-	public bool poplavokInWater = false;
+    public float power, powBack;
+    public bool poplavokInWater = false;
 
 	float powerPredel = 100f;
-
 	float speedX;
-
-	bool boolForButton = false;
+    bool boolForButton = false;
 	bool throwed = false;
 
-	void Start()
+    public float n;
+    public GameObject activ;
+    public GameObject Bttn_Fishing;
+
+    public Sprite[] buttons;
+
+    void Start()
 	{
-
-        transform.position = Load.LoadVector2(name);//Перемещаем игрока на предыдущие координаты
-
+        activ.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 		trans = GetComponent<Transform>();
 		collide = GetComponent<CapsuleCollider2D>();
 		collideForPoplav = GetComponent<BoxCollider2D>();
 		fishingScript = GetComponent<fishingScript>();
 		startSpR = poplavok.GetComponent<SpriteRenderer>();
 
-		
-	}
+        transform.position = Load.LoadVector2(name);
+    }
 
 	public void LeftButtonDown()
 	{
-		transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
+        anim.SetBool("BoolRun", true);
+
+		transform.localScale = new Vector3(-1, 1, 1);
 		speedX = -horizontalSpeed;
 	}
 
 	public void RightButtonDown()
 	{
-		speedX = horizontalSpeed;
-		transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        anim.SetBool("BoolRun", true);
+        speedX = horizontalSpeed;
+		transform.localScale = new Vector3(1, 1, 1);
 	}
 
 	public void Stop()
 	{
-		speedX = 0;
+        anim.SetBool("BoolRun", false);
+        speedX = 0;
 	}
 
-	public void Update()
+    public void Update()
 	{
+        n += Time.deltaTime;
+
 		if (boolForButton)
 		{
 			updateForThrow();
 		}
 
-		switch(fishingScript.fishingTime) // nado yslovie
+        if (n >= 10 && n <= 11 && anim.GetBool("BoolRun") == false && anim.GetBool("BoolGrub") == false )
+        {
+            anim.SetBool("Idle", true);
+        }
+        else if (n > 11 || anim.GetBool("BoolGrub") == true)
+        {
+            n = 0;
+            anim.SetBool("Idle", false);
+        }
+
+        /*if(fishingScript.fishingTime <= 1)
 		{
-			case 1:
-				poplavokRb.AddForce(new Vector2(0, -0.05f), ForceMode2D.Impulse);
-				break;
+            poplavokRb.AddForce(new Vector2(0, -0.05f), ForceMode2D.Impulse);
 		}
+        */
+        switch (fishingScript.fishingTime) // nado yslovie 
+        {
+            case 1:
+                poplavokRb.AddForce(new Vector2(0, -0.05f), ForceMode2D.Impulse);
+                break;
+        }
 
 		water.surfaceLevel = 0.7f - power;
 
 		deletePoplavok();
 	}
 
-	public IEnumerator bulk()
-	{
-		yield return new WaitForSeconds(0.5f);
-	}
-
 	public void FixedUpdate()
 	{
 		transform.Translate(speedX, 0, 0);
-	}
-
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		//тут пишем тригеры))
 	}
 
 	async void updateForThrow()
@@ -152,22 +157,29 @@ public class Controller : MonoBehaviour
 			}
 		}
 
-		print(power);
+		//print(power);
 	}
 
 	public void startButtonFishing()
 	{
-		boolForButton = true;
+        // нужно условие границ рыбалки, пруда
+        if (transform.position.x < 10f && transform.position.x > -16f)
+        {
+            boolForButton = true;
+            activ.SetActive(true);
+
+        }
 	}
 
 	public void stopButtonFishing()
 	{
+        if (transform.position.x < 10f && transform.position.x > -16f)
+        {
+            boolForButton = false;
+            power *= throwMultiplyer;
 
-		boolForButton = false;
-
-		power *= throwMultiplyer;
-
-		fishing();
+            fishing();
+        }
 	}
 
 	public void fishing()
@@ -217,16 +229,17 @@ public class Controller : MonoBehaviour
 		else
 
 		{
-			poplavokRb.AddForceAtPosition(-(transPoplavok.position - trans.localPosition) * 15f, trans.localPosition);//притягивание поплавка назад
+			poplavokRb.AddForceAtPosition(-(transPoplavok.position - trans.localPosition) * powBack, trans.localPosition);//притягивание поплавка назад
 		}
 	}
 	void deletePoplavok()
 	{
-		try
+        try
 		{
 			if (newPoplavok.GetComponent<BoxCollider2D>().IsTouching(water.GetComponent<BoxCollider2D>()))
-			{
-				poplavokInWater = true;
+            {
+                Bttn_Fishing.GetComponent<Image>().sprite = buttons[1];
+                poplavokInWater = true;
 			}
 			else
 			{
@@ -242,7 +255,10 @@ public class Controller : MonoBehaviour
 					Destroy(newPoplavok);
 					throwed = false;
 
-					fishingScript.StopAllCoroutines();
+                    activ.SetActive(false);
+                    Bttn_Fishing.GetComponent<Image>().sprite = buttons[0];
+
+                    fishingScript.StopAllCoroutines();
 
 					if (fishingScript.catched)
 					{
@@ -268,7 +284,7 @@ public class Controller : MonoBehaviour
         Save.SaveVector3(name, transform.position);
     }
 #endif
-    private void OnApplicationQuit()
+    public void OnApplicationQuit()
     {
         Save.SaveVector3(name, transform.position);//Сохраняем местоположение перед выходом из игры
     }

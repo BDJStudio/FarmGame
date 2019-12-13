@@ -18,8 +18,13 @@ public class Growth : MonoBehaviour
     private int day;
     private float n;
 
+    private GameObject Bttns;
+
     void Start()
     {
+        //GetComponent<SpriteRenderer>().sprite = sprites[Load.LoadGrubing("one")];
+        Bttns = GameObject.Find("Bttn_Grubing_Wheat");
+        //Bttns.GetComponent<Grubing>().isDelete = false;
         GetComponent<SpriteRenderer>().sprite = sprites[0];
     }
 
@@ -43,7 +48,7 @@ public class Growth : MonoBehaviour
             day += 1;
         }
 
-        n = minute; // тут пишем как вычислять время роста: минуты, часы или дни
+        n = hour; // тут пишем как вычислять время роста: минуты, часы или дни
 
         // функция роста
         if (time != n) // растет пока не кончится время

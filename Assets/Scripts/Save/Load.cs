@@ -40,4 +40,13 @@ public class Load : MonoBehaviour
         }
         return 1;
     }
+
+    static public int LoadGrubing(string key)
+    {
+        if (PlayerPrefs.HasKey(key))
+        {
+            return PlayerPrefs.GetInt(key);
+        }
+        return 0;
+    }
 }

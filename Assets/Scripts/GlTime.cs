@@ -16,8 +16,7 @@ public class GlTime : MonoBehaviour
 
     void Start()
     {
-        hour = 0;
-        minute = 0;
+        day = 1;
         second = 0;
         day = Load.LoatGlTimeDay("GlTimeDay");
     }
@@ -46,7 +45,6 @@ public class GlTime : MonoBehaviour
             }
             else
             {
-                GlTimeDay.day++;
                 jb.UpdateJobs();
             }
 
@@ -57,6 +55,23 @@ public class GlTime : MonoBehaviour
             else
                 timeWorld.text = "День " + day.ToString();
         }
+
+        if (day > 1)
+        {
+            timeWorld.text = "День " + (day - 1).ToString();
+        }else
+            timeWorld.text = "День " + day.ToString();
     }
 
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private void OnApplicationPause(bool pause)
+    {
+        Save.SaveGlTimeDay("GlTimeDay", day);
+    }
+#endif
+
+    public void OnApplicationQuit()
+    {
+        Save.SaveGlTimeDay("GlTimeDay", day);//Сохраняем данные в сохранение
+    }
 }

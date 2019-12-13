@@ -13,14 +13,14 @@ public class Score : MonoBehaviour
         scoreText = GetComponent<Text>();
         score = Load.LoadScore("GUImoney");//Загружем данные из сохранения
         //Каждый заход в игру даем себе 100р.
-        score += 100;
+        //score = 100;
         ///////////////
         
     }
 
     void Update()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = score.ToString();
     }
 
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -29,7 +29,7 @@ public class Score : MonoBehaviour
         if(pause) Save.SaveScore("GUImoney", score);
     }
 #endif
-    private void OnApplicationQuit()
+    public void OnApplicationQuit()
     {
         Save.SaveScore("GUImoney", score);//Сохраняем данные в сохранение
     }

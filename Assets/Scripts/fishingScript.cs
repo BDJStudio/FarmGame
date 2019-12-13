@@ -40,10 +40,10 @@ public class fishingScript : MonoBehaviour
 
     public IEnumerator checkFishfor()//сорян ну рил жопа уже горит
     {
-        if (fishingTime == 1)
+        /*if (fishingTime == 1)
         {
 
-        }
+        }*/
 
         while (true)
         {
@@ -60,8 +60,8 @@ public class fishingScript : MonoBehaviour
 		{
 
 			catchFish();
-			print("Ловлю");
-			print(fishingTime);
+			//print("Ловлю");
+			//print(fishingTime);
 		}
 
 	}
@@ -76,11 +76,11 @@ public class fishingScript : MonoBehaviour
 		if (fishingTime == 0)
 		{
 			
-			catchFishID = Random.Range(3, 6);
-			if (catchFishID < fishes / 2)
+			catchFishID = Random.Range(5, 7);// рандом выпадания ИД итемов из списка
+			/*if (catchFishID < fishes / 2)
 			{
 				catchFishID = Random.Range(0, fishes);
-			}
+			}*/
 			
 
 
@@ -88,10 +88,7 @@ public class fishingScript : MonoBehaviour
 			fishingTime--;
 			swapFish.swapSprite();
 		}
-
-		print(catchFishID);
-
-	}
+    }
 
 	public void getFish()
 	{

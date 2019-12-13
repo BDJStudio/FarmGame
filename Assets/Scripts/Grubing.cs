@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Grubing : MonoBehaviour
 {
-
-    public GameObject activate;
+    public GameObject activate, player;
     public bool isDelete;
-    public int ID_items; // тут пишем ИД итема из датабейс овоща который собираемся давать
+    public int ID_items;  // тут пишем ИД итема из датабейс овоща который собираемся давать
 
     private DataBase db;
     private Inventory inv;
-    private GameObject growth;
 
     public void Start() 
     {
@@ -25,9 +23,10 @@ public class Grubing : MonoBehaviour
         inv.SearchItems(db.items[ID_items], 1);
 
         // тут мы их садим
-        if (inv.searchBool)
+        if (inv.searchINT == ID_items)
         {
-            Instantiate(activate, transform.position + new Vector3(2, -3.2f, 0), Quaternion.identity);
+            player.GetComponent<Animator>().SetBool("BoolGrub", true);
+            Instantiate(activate, transform.position + new Vector3(2, -2.2f, 0), Quaternion.identity);
             StartCoroutine(Delete());
         }
     }
@@ -36,8 +35,11 @@ public class Grubing : MonoBehaviour
     // функция прячет кнопку
     IEnumerator Delete()
     {
-        yield return new WaitForSeconds(0.3f);
-        gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
         isDelete = true;
+        inv.UpdateInventory();
+        gameObject.SetActive(false);
+
+        player.GetComponent<Animator>().SetBool("BoolGrub", false);
     }
 }

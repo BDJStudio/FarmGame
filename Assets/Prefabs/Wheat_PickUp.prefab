@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321684156373602040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7820034, y: 2.141302, z: 0}
+  m_LocalPosition: {x: -3.393, y: 2.141302, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5408837269650915063}
@@ -70,13 +70,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -3886625056241180010, guid: d3dffe41eafa27245a5015b49320979a,
+  m_Sprite: {fileID: -6117696845497851765, guid: d3dffe41eafa27245a5015b49320979a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.7533332, y: 2.290897}
+  m_Size: {x: 2.3502233, y: 3.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 5408837269650915063}
   m_Layer: 0
   m_Name: Wheat_PickUp
-  m_TagString: Finish
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,13 +283,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -3886625056241180010, guid: d3dffe41eafa27245a5015b49320979a,
+  m_Sprite: {fileID: -6117696845497851765, guid: d3dffe41eafa27245a5015b49320979a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.7533332, y: 2.290897}
+  m_Size: {x: 2.3502233, y: 3.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -327,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1030572463553676938}
   - component: {fileID: 5200440886795287572}
-  - component: {fileID: 1175873233260253231}
+  - component: {fileID: 6480348868216955936}
   - component: {fileID: 6092127535998155310}
   m_Layer: 0
   m_Name: Bttn_PickUP
@@ -345,7 +345,7 @@ Transform:
   m_GameObject: {fileID: 5995372949999914681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.7820034, y: 6, z: 0}
-  m_LocalScale: {x: 0.24792024, y: 0.16619241, z: 0.26893}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5408837269650915063}
   m_RootOrder: 1
@@ -388,20 +388,20 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -5472767802858255298, guid: 9e5f489ec6aa5234b8e9194f34450adb,
+  m_Sprite: {fileID: -1439091468659886747, guid: d3dffe41eafa27245a5015b49320979a,
     type: 3}
-  m_Color: {r: 0.84409744, g: 0.21226418, b: 1, a: 0.6}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.85490197}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.22, y: -0.05}
+  m_Size: {x: 1.7851696, y: 1.6899999}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1175873233260253231
-BoxCollider2D:
+--- !u!58 &6480348868216955936
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -413,19 +413,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.5200696, y: 5.6600003}
-    newSize: {x: 0.22, y: -0.05}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.04132712, y: 0}
   serializedVersion: 2
-  m_Size: {x: 5.5200696, y: 5.6600003}
-  m_EdgeRadius: 0
+  m_Radius: 0.8512577
 --- !u!114 &6092127535998155310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,9 +430,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   namePref: Wheat_PickUp(Clone)
   ID_items: 1
-  wheat1: {fileID: 8184720182644264657}
-  wheat2: {fileID: 4008092984851722445}
-  wheat3: {fileID: 321684156373602040}
+  sp1: {fileID: 8184720182644264657}
+  sp2: {fileID: 4008092984851722445}
+  sp3: {fileID: 321684156373602040}
 --- !u!1 &8184720182644264657
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +459,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8184720182644264657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7820034, y: 2.141302, z: 0}
+  m_LocalPosition: {x: -1.171, y: 2.141302, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5408837269650915063}
@@ -513,13 +503,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -3886625056241180010, guid: d3dffe41eafa27245a5015b49320979a,
+  m_Sprite: {fileID: -6117696845497851765, guid: d3dffe41eafa27245a5015b49320979a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.7533332, y: 2.290897}
+  m_Size: {x: 2.3502233, y: 3.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

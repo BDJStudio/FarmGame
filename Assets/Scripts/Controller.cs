@@ -79,7 +79,7 @@ public class Controller : MonoBehaviour
 
 		if (PlayerPrefs.GetInt("Carrot") == 1)
 		{
-			Instantiate(forLoadPrefabs[2], new Vector3(), Quaternion.identity);
+			Instantiate(forLoadPrefabs[2], new Vector3(-22.25f, -8.11f, 0), Quaternion.identity);
 
 		}
 
@@ -94,6 +94,7 @@ public class Controller : MonoBehaviour
 			for (int i = 1; i <= 3; i++)
 			{
 				GameObject.Find("Wheat_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timeWheat" + i.ToString());
+				GameObject.Find("Wheat_" + i).GetComponent<Growth>().timeInPercent = PlayerPrefs.GetFloat("WheatTimeToGrow");
 				GameObject.Find("Wheat_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Wheat_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("WheatSprite")];
 			}
 		}
@@ -104,6 +105,7 @@ public class Controller : MonoBehaviour
 			for (int i = 1; i <= 3; i++)
 			{
 				GameObject.Find("Tomato_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timeTomato" + i.ToString());
+				GameObject.Find("Tomato_" + i).GetComponent<Growth>().timeInPercent = PlayerPrefs.GetFloat("TomatoTimeToGrow");
 				GameObject.Find("Tomato_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Tomato_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("TomatoSprite")];
 			}
 		}
@@ -112,7 +114,9 @@ public class Controller : MonoBehaviour
 			for (int i = 1; i <= 3; i++)
 			{
 				GameObject.Find("Carrot_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timeCarrot" + i.ToString());
+				GameObject.Find("Carrot_" + i).GetComponent<Growth>().timeInPercent = PlayerPrefs.GetFloat("CarrotTimeToGrow");
 				GameObject.Find("Carrot_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Carrot_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("CarrotSprite")];
+
 			}
 		}
 
@@ -122,6 +126,7 @@ public class Controller : MonoBehaviour
 			for (int i = 1; i <= 3; i++)
 			{
 				GameObject.Find("Potato_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timePotato" + i.ToString());
+				GameObject.Find("Potato_" + i).GetComponent<Growth>().timeInPercent = PlayerPrefs.GetFloat("PotatoTimeToGrow");
 				GameObject.Find("Potato_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Potato_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("PotatoSprite")];
 			}
 		}
@@ -134,17 +139,21 @@ public class Controller : MonoBehaviour
 
 	}
 
+
 	public void LeftButtonDown()
 	{
         anim.SetBool("BoolRun", true);
+        anim.SetBool("BoolGrub", false);
 
-		transform.localScale = new Vector3(-1, 1, 1);
+        transform.localScale = new Vector3(-1, 1, 1);
 		speedX = -horizontalSpeed;
 	}
 
 	public void RightButtonDown()
 	{
         anim.SetBool("BoolRun", true);
+        anim.SetBool("BoolGrub", false);
+
         speedX = horizontalSpeed;
 		transform.localScale = new Vector3(1, 1, 1);
 	}
@@ -157,7 +166,12 @@ public class Controller : MonoBehaviour
 
     public void Update()
 	{
-        n += Time.deltaTime;
+
+		Save.savePosajenieVegetables();
+
+
+
+		n += Time.deltaTime;
 
 		if (boolForButton)
 		{
@@ -168,7 +182,7 @@ public class Controller : MonoBehaviour
         {
             anim.SetBool("Idle", true);
         }
-        else if (n > 11 || anim.GetBool("BoolGrub") == true)
+        else if (n > 11 || anim.GetBool("BoolGrub") == false)
         {
             n = 0;
             anim.SetBool("Idle", false);

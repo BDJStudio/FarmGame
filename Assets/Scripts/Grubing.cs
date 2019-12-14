@@ -8,6 +8,8 @@ public class Grubing : MonoBehaviour
     public bool isDelete;
     public int ID_items;  // тут пишем ИД итема из датабейс овоща который собираемся давать
 
+	
+
     private DataBase db;
     private Inventory inv;
     private Power pow;
@@ -16,6 +18,7 @@ public class Grubing : MonoBehaviour
     {
         inv = GameObject.Find("Main Camera").GetComponent<Inventory>();
         db = GameObject.Find("Main Camera").GetComponent<DataBase>();
+
         pow = GameObject.Find("Main Camera").GetComponent<Power>();
     }
 
@@ -29,6 +32,7 @@ public class Grubing : MonoBehaviour
         {
             player.GetComponent<Animator>().SetBool("BoolGrub", true);
             Instantiate(activate, transform.position + new Vector3(2, -2.2f, 0), Quaternion.identity);
+			
             StartCoroutine(Delete());
             pow.N--;
         }
@@ -39,13 +43,12 @@ public class Grubing : MonoBehaviour
     IEnumerator Delete()
     {
         isDelete = true;
-        
+
         yield return new WaitForSeconds(0.1f);
         player.GetComponent<Animator>().SetBool("BoolGrub", false);
         inv.UpdateInventory();
         gameObject.SetActive(false);
 
-        
         
     }
 }

@@ -10,13 +10,16 @@ public class Growth : MonoBehaviour
     public GameObject Trigger;
     public bool Pick, isGrowthing;
 
+	bool firstStart = true;
     public float time;
 
-    private int hour;
+    public int hour;
     private int minute;
     private float second;
     private int day;
     private float n;
+
+	public int currentSprite;
 
     private GameObject Bttns;
 
@@ -25,13 +28,14 @@ public class Growth : MonoBehaviour
         //GetComponent<SpriteRenderer>().sprite = sprites[Load.LoadGrubing("one")];
         Bttns = GameObject.Find("Bttn_Grubing_Wheat");
         //Bttns.GetComponent<Grubing>().isDelete = false;
-        GetComponent<SpriteRenderer>().sprite = sprites[0];
+
     }
 
     void Update()
     {
-        // это внутрений счетчик для роста растений
-        second += Time.deltaTime;
+
+
+		second += Time.deltaTime;
         if (second >= 1f)
         {
             second = 0;
@@ -61,7 +65,7 @@ public class Growth : MonoBehaviour
             Trigger.GetComponent<ActiveBttns>().PickUp = true;
         }
 
-    }
+	}
 
     void Rost() //функция которая разделяет поставленое время роста на 5 и меняет спрайты роста в зависимости от него
     {
@@ -70,22 +74,27 @@ public class Growth : MonoBehaviour
         if (n >= 0 && n < time / 5)
         {
             GetComponent<SpriteRenderer>().sprite = sprites[0];
-        }
+			currentSprite = 0;
+		}
         else if (n >= time / 5 && n < 2 * time / 5)
         {
             GetComponent<SpriteRenderer>().sprite = sprites[1];
-        }
+			currentSprite = 1;
+		}
         else if (n >= 2 * time / 5 && n < 3 * time / 5)
         {
             GetComponent<SpriteRenderer>().sprite = sprites[2];
-        }
+			currentSprite = 2;
+		}
         else if (n >= 3 * time / 5 && n < 4 * time / 5)
         {
             GetComponent<SpriteRenderer>().sprite = sprites[3];
-        }
+			currentSprite = 3;
+		}
         else if (n >= 4 * time / 5 && n < 5 * time / 5)
         {
             GetComponent<SpriteRenderer>().sprite = sprites[4];
-        }
+			currentSprite = 4;
+		}
     }
 }

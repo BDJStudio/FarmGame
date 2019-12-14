@@ -103,7 +103,9 @@ MonoBehaviour:
   Trigger: {fileID: 1944459539233179675}
   Pick: 0
   isGrowthing: 0
-  time: 5
+  time: 2
+  hour: 0
+  currentSprite: 0
 --- !u!1 &1944459539233179675
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,10 +176,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1478ea9dfa122614c80427a969745f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  db: {fileID: 0}
+  inv: {fileID: 0}
   Bttn: {fileID: 5995372949999914681}
   isPickButtn: 1
+  isNightButtn: 0
   PickUp: 0
+  isWheat: 0
+  isCarrot: 0
+  isTomato: 0
+  isPotato: 0
   arr: []
+  arr2: []
+  arr3: []
+  arr4: []
+  bttn: {fileID: 0}
 --- !u!1 &3548727132097054282
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +329,9 @@ MonoBehaviour:
   Trigger: {fileID: 1944459539233179675}
   Pick: 0
   isGrowthing: 0
-  time: 5
+  time: 2
+  hour: 0
+  currentSprite: 0
 --- !u!1 &5995372949999914681
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,4 +551,6 @@ MonoBehaviour:
   Trigger: {fileID: 1944459539233179675}
   Pick: 0
   isGrowthing: 0
-  time: 5
+  time: 2
+  hour: 0
+  currentSprite: 0

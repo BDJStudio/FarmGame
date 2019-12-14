@@ -288,7 +288,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void SearchItems(Item item, int count) // функция поиска нужного итема и его колличества в инвентаре
+    public void SearchItems(Item item, int count) // функция поиска нажного итема и его колличества в инвентаре
     {
         int n = 0;
 

@@ -12,6 +12,7 @@ public class Controller : MonoBehaviour
     public SpriteRenderer fishSprite;//Объект, на который кидаем спрайт рыбы
     public GlTime timeCount;
     public GameObject newSpriteFish;
+	public GameObject[] forLoadPrefabs;
 
 	GameObject newPoplavok;//поплавок, который кидаем
     CapsuleCollider2D collide;
@@ -56,15 +57,87 @@ public class Controller : MonoBehaviour
 		trans = GetComponent<Transform>();
 		collide = GetComponent<CapsuleCollider2D>();
 		collideForPoplav = GetComponent<BoxCollider2D>();
-		fishingScript = GetComponent<fishingScript>();
+		fishingScript = GetComponent<fishingScript>(); 
 		startSpR = poplavok.GetComponent<SpriteRenderer>();
 
         transform.position = Load.LoadVector2(name);
-    }
+
+
+		//загрузка растений
+
+
+		if (PlayerPrefs.GetInt("Wheat") == 1)
+		{
+			Instantiate(forLoadPrefabs[0], new Vector3(-18.47f, -8.11f, 0), Quaternion.identity);
+
+		}
+
+		if (PlayerPrefs.GetInt("Tomato") == 1)
+		{
+			Instantiate(forLoadPrefabs[1], new Vector3(-31.77f, -7.93f, 0), Quaternion.identity);
+		}
+
+		if (PlayerPrefs.GetInt("Carrot") == 1)
+		{
+			Instantiate(forLoadPrefabs[2], new Vector3(-22.25f, -8.11f, 0), Quaternion.identity);
+
+		}
+
+		if (PlayerPrefs.GetInt("Potato") == 1)
+		{
+			Instantiate(forLoadPrefabs[3], new Vector3(-26.85f, -8.11f, 0), Quaternion.identity);
+		}
+
+		if (GameObject.Find("Wheat_1") != null)
+		{
+
+			for (int i = 1; i <= 3; i++)
+			{
+				GameObject.Find("Wheat_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timeWheat" + i.ToString());
+				GameObject.Find("Wheat_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Wheat_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("WheatSprite")];
+			}
+		}
+
+		if (GameObject.Find("Tomato_1") != null)
+		{
+
+			for (int i = 1; i <= 3; i++)
+			{
+				GameObject.Find("Tomato_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timeTomato" + i.ToString());
+				GameObject.Find("Tomato_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Tomato_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("TomatoSprite")];
+			}
+		}
+		if (GameObject.Find("Carrot_1") != null)
+		{
+			for (int i = 1; i <= 3; i++)
+			{
+				GameObject.Find("Carrot_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timeCarrot" + i.ToString());
+				GameObject.Find("Carrot_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Carrot_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("CarrotSprite")];
+			}
+		}
+
+		if (GameObject.Find("Potato_1") != null)
+		{
+
+			for (int i = 1; i <= 3; i++)
+			{
+				GameObject.Find("Potato_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timePotato" + i.ToString());
+				GameObject.Find("Potato_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Potato_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("PotatoSprite")];
+			}
+		}
+
+
+		PlayerPrefs.SetInt("Wheat", 0);
+		PlayerPrefs.SetInt("Tomato", 0);
+		PlayerPrefs.SetInt("Potato", 0);
+		PlayerPrefs.SetInt("Carrot", 0);
+
+	}
 
 	public void LeftButtonDown()
 	{
         anim.SetBool("BoolRun", true);
+        anim.SetBool("BoolGrub", false);
 
         transform.localScale = new Vector3(-1, 1, 1);
 		speedX = -horizontalSpeed;
@@ -74,6 +147,7 @@ public class Controller : MonoBehaviour
 	{
         anim.SetBool("BoolRun", true);
         anim.SetBool("BoolGrub", false);
+
         speedX = horizontalSpeed;
 		transform.localScale = new Vector3(1, 1, 1);
 	}
@@ -81,7 +155,6 @@ public class Controller : MonoBehaviour
 	public void Stop()
 	{
         anim.SetBool("BoolRun", false);
-        anim.SetBool("BoolGrub", false);
         speedX = 0;
 	}
 
@@ -191,6 +264,8 @@ public class Controller : MonoBehaviour
 
 		if (!newPoplavok)//Проверка, кинут ли поплавок
 		{
+			fishingScript.fishingTime = UnityEngine.Random.Range(5, 10);//рандомное время для вылавливания рыбы
+
 			if (trans.localScale.x > 0f)
 			{
 				newPoplavok = Instantiate(poplavok, trans.localPosition + new Vector3(1f, 2f), Quaternion.identity);//создание поплавка
@@ -199,7 +274,7 @@ public class Controller : MonoBehaviour
 
 
 				fishingScript.StartCoroutine(fishingScript.checkFishfor());
-				fishingScript.fishingTime = UnityEngine.Random.Range(5, 10);//рандомное время для вылавливания рыбы
+
 
 				if (powerFishing.x < 0)
 				{
@@ -209,6 +284,11 @@ public class Controller : MonoBehaviour
 			else
 			{
 				newPoplavok = Instantiate(poplavok, trans.localPosition + new Vector3(-1f, 2f), Quaternion.identity);//тут тоже, но в другую сторону
+				newSpriteFish = GameObject.FindGameObjectsWithTag("FishSprite")[1];
+
+
+				fishingScript.StartCoroutine(fishingScript.checkFishfor());
+
 
 				if (powerFishing.x > 0)
 				{
@@ -277,9 +357,21 @@ public class Controller : MonoBehaviour
 				{
 					poplavokRb.AddForceAtPosition(new Vector2(-5f, 1f), trans.localPosition);////ограничение длины лески по х
 				}
+
+				if(trans.position.x < -20 || trans.position.x > 17)
+				{
+					Destroy(newPoplavok);
+					throwed = false;
+
+					activ.SetActive(false);
+					Bttn_Fishing.GetComponent<Image>().sprite = buttons[0];
+
+					fishingScript.StopAllCoroutines();
+				}
 			}
 		}
 	}
+
 #if UNITY_ANDROID && !UNITY_EDITOR
     private void OnApplicationPause(bool pause)
     {
@@ -289,5 +381,9 @@ public class Controller : MonoBehaviour
     public void OnApplicationQuit()
     {
         Save.SaveVector3(name, transform.position);//Сохраняем местоположение перед выходом из игры
-    }
+
+
+		Save.savePosajenieVegetables();
+
+	}
 }

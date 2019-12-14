@@ -71,11 +71,7 @@ public class Buttons : MonoBehaviour
                     score.GetComponent<Score>().OnApplicationQuit();
                     day.GetComponent<GlTime>().OnApplicationQuit();
 
-                    trigg_Grubing1.GetComponent<ActiveBttns>().OnApplicationQuit();
-                    trigg_Grubing2.GetComponent<ActiveBttns>().OnApplicationQuit();
-                    trigg_Grubing3.GetComponent<ActiveBttns>().OnApplicationQuit();
-                    trigg_Grubing4.GetComponent<ActiveBttns>().OnApplicationQuit();
-
+                    Save.savePosajenieVegetables();
                     SceneManager.LoadScene("Menu");
                 }
                 break;

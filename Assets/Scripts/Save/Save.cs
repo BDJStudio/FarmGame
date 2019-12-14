@@ -27,10 +27,77 @@ public class Save : MonoBehaviour
         PlayerPrefs.SetInt(key + "Price", price);
     }
 
+
+
     static public void SaveGrubing(string key, int items)
     {
         PlayerPrefs.SetInt(key, items);
     }
 
+
+	static public void savePosajenieVegetables()
+	{
+		saveWheat();
+		saveCarrot();
+		savePotato();
+		saveTomato();
+	}
+
+	static public void saveWheat()
+	{
+		if (GameObject.Find("Wheat_PickUp(Clone)") != null)
+		{
+
+			for (int i = 1; i <= 3; i++)
+			{
+				PlayerPrefs.SetInt("timeWheat" + i.ToString(), GameObject.Find("Wheat_" + i.ToString()).GetComponent<Growth>().hour);
+				PlayerPrefs.SetInt("WheatSprite", GameObject.Find("Wheat_" + i.ToString()).GetComponent<Growth>().currentSprite);
+			}
+			PlayerPrefs.SetInt("Wheat", 1);
+		}
+	}
+	static public void saveCarrot()
+	{
+		if (GameObject.Find("Carrot_PickUp(Clone)") != null)
+		{
+			for (int i = 1; i <= 3; i++)
+			{
+				PlayerPrefs.SetInt("timeCarrot" + i, GameObject.Find("Carrot_" + i).GetComponent<Growth>().hour);
+				PlayerPrefs.SetInt("CarrotSprite", GameObject.Find("Carrot_" + i.ToString()).GetComponent<Growth>().currentSprite);
+			}
+
+			PlayerPrefs.SetInt("Carrot", 1);
+		}
+
+	}
+	static public void saveTomato()
+	{
+
+		if (GameObject.Find("Tomato_PickUp(Clone)") != null)
+		{
+			for (int i = 1; i <= 3; i++)
+			{
+				PlayerPrefs.SetInt("timeTomato" + i.ToString(), GameObject.Find("Tomato_" + i.ToString()).GetComponent<Growth>().hour);
+				PlayerPrefs.SetInt("TomatoSprite", GameObject.Find("Tomato_" + i.ToString()).GetComponent<Growth>().currentSprite);
+			}
+
+			PlayerPrefs.SetInt("Tomato", 1);
+		}
+	}
+
+	static public void savePotato()
+	{
+
+		if (GameObject.Find("Potato_PickUp(Clone)") != null)
+		{
+			for (int i = 1; i <= 3; i++)
+			{
+				PlayerPrefs.SetInt("timePotato" + i, GameObject.Find("Potato_" + i).GetComponent<Growth>().hour);
+				PlayerPrefs.SetInt("PotatoSprite", GameObject.Find("Potato_" + i.ToString()).GetComponent<Growth>().currentSprite);
+			}
+
+			PlayerPrefs.SetInt("Potato", 1);
+		}
+	}
 }
   

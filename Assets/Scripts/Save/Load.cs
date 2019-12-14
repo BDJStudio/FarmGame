@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Load : MonoBehaviour
 {
-    static public Vector2 LoadVector2(string key)//Загрузка Местоположения
+
+
+
+
+
+
+		static public Vector2 LoadVector2(string key)//Загрузка Местоположения
     {
         if (PlayerPrefs.HasKey(key + "X"))//Проверка есть ли ключ
         {

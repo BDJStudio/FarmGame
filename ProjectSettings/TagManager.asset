@@ -9,6 +9,11 @@ TagManager:
   - score
   - Off
   - Water
+  - FishSprite
+  - 1
+  - 2
+  - 3
+  - 4
   layers:
   - Default
   - TransparentFX

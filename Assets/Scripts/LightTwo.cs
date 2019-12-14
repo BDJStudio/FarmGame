@@ -10,7 +10,7 @@ public class LightTwo : MonoBehaviour
     void Update()
     {
         pes = gltim.day;
-        if (pes % 2 == 0)
+        if (pes % 2 != 0)
         {
             if (gameObject.GetComponent<Light>().intensity < 1.6f)
             {
@@ -20,7 +20,7 @@ public class LightTwo : MonoBehaviour
             else gameObject.GetComponent<Light>().intensity = 1.6f;
 
         }
-        else if(pes % 2 != 0)
+        else if(pes % 2 == 0)
         {
             if (gameObject.GetComponent<Light>().intensity > 0.5f)
             {

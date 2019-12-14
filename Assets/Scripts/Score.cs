@@ -13,7 +13,7 @@ public class Score : MonoBehaviour
         scoreText = GetComponent<Text>();
         score = Load.LoadScore("GUImoney");//Загружем данные из сохранения
         //Каждый заход в игру даем себе 100р.
-        //score = 100;
+        //score = 1000;
         ///////////////
         
     }

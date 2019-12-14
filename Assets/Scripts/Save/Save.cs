@@ -27,4 +27,10 @@ public class Save : MonoBehaviour
         PlayerPrefs.SetInt(key + "Price", price);
     }
 
+    static public void SaveGrubing(string key, int items)
+    {
+        PlayerPrefs.SetInt(key, items);
+    }
+
 }
+  

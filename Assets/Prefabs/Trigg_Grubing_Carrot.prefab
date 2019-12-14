@@ -71,14 +71,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1478ea9dfa122614c80427a969745f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  db: {fileID: 0}
+  inv: {fileID: 0}
   Bttn: {fileID: 6438638676715879577}
   isPickButtn: 0
   PickUp: 0
   isWheat: 0
-  isCarrot: 0
+  isCarrot: 1
   isTomato: 0
   isPotato: 0
   arr: []
+  arr2: []
+  arr3: []
+  arr4: []
   bttn: {fileID: 0}
 --- !u!1 &6438638676715879577
 GameObject:

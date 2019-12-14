@@ -45,4 +45,5 @@ public class PickUPBttn : MonoBehaviour
         sp2.GetComponent<Growth>().Pick = false;
         sp3.GetComponent<Growth>().Pick = false;
     }
+    
 }

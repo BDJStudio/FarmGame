@@ -186,12 +186,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1478ea9dfa122614c80427a969745f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  db: {fileID: 0}
+  inv: {fileID: 0}
   Bttn: {fileID: 1993793678704545004}
   isPickButtn: 0
   PickUp: 0
   isWheat: 0
   isCarrot: 0
   isTomato: 0
-  isPotato: 0
+  isPotato: 1
   arr: []
+  arr2: []
+  arr3: []
+  arr4: []
   bttn: {fileID: 0}

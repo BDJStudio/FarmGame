@@ -66,13 +66,14 @@ public class Controller : MonoBehaviour
 	{
         anim.SetBool("BoolRun", true);
 
-		transform.localScale = new Vector3(-1, 1, 1);
+        transform.localScale = new Vector3(-1, 1, 1);
 		speedX = -horizontalSpeed;
 	}
 
 	public void RightButtonDown()
 	{
         anim.SetBool("BoolRun", true);
+        anim.SetBool("BoolGrub", false);
         speedX = horizontalSpeed;
 		transform.localScale = new Vector3(1, 1, 1);
 	}
@@ -80,6 +81,7 @@ public class Controller : MonoBehaviour
 	public void Stop()
 	{
         anim.SetBool("BoolRun", false);
+        anim.SetBool("BoolGrub", false);
         speedX = 0;
 	}
 
@@ -96,7 +98,7 @@ public class Controller : MonoBehaviour
         {
             anim.SetBool("Idle", true);
         }
-        else if (n > 11 || anim.GetBool("BoolGrub") == true)
+        else if (n > 11 || anim.GetBool("BoolGrub") == false)
         {
             n = 0;
             anim.SetBool("Idle", false);

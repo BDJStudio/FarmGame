@@ -39,18 +39,18 @@ public class GlTime : MonoBehaviour
             hour = 0;
             day += 1;
 
-            if (day % 2 == 0)
+/*            if (day % 2 == 0)
             {
                 jb.Ferb();
             }
             else
             {
                 jb.UpdateJobs();
-            }
+            }*/
 
             if (day > 1)
             {
-                timeWorld.text = "День " + (day - 1).ToString();
+                timeWorld.text = "День " + (day / 2).ToString();
             }
             else
                 timeWorld.text = "День " + day.ToString();
@@ -58,10 +58,13 @@ public class GlTime : MonoBehaviour
 
         if (day > 1)
         {
-            timeWorld.text = "День " + (day - 1).ToString();
+            timeWorld.text = "День " + (day/2).ToString();
         }else
             timeWorld.text = "День " + day.ToString();
     }
+
+
+
 
 #if UNITY_ANDROID && !UNITY_EDITOR
     private void OnApplicationPause(bool pause)
@@ -70,7 +73,7 @@ public class GlTime : MonoBehaviour
     }
 #endif
 
-    public void OnApplicationQuit()
+	public void OnApplicationQuit()
     {
         Save.SaveGlTimeDay("GlTimeDay", day);//Сохраняем данные в сохранение
     }

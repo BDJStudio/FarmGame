@@ -46,11 +46,13 @@ public class Controller : MonoBehaviour
     public float n;
     public GameObject activ;
     public GameObject Bttn_Fishing;
+	private GameObject pow;
 
     public Sprite[] buttons;
 
-    void Start()
+	public void Start()
 	{
+
         activ.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -59,6 +61,8 @@ public class Controller : MonoBehaviour
 		collideForPoplav = GetComponent<BoxCollider2D>();
 		fishingScript = GetComponent<fishingScript>(); 
 		startSpR = poplavok.GetComponent<SpriteRenderer>();
+
+		
 
         transform.position = Load.LoadVector2(name);
 
@@ -95,7 +99,7 @@ public class Controller : MonoBehaviour
 			{
 				GameObject.Find("Wheat_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timeWheat" + i.ToString());
 				GameObject.Find("Wheat_" + i).GetComponent<Growth>().timeInPercent = PlayerPrefs.GetFloat("WheatTimeToGrow");
-				GameObject.Find("Wheat_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Wheat_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("WheatSprite")];
+				GameObject.Find("Wheat_" + i).GetComponent<Growth>().currentSprite = PlayerPrefs.GetInt("WheatSprite");
 			}
 		}
 
@@ -106,7 +110,7 @@ public class Controller : MonoBehaviour
 			{
 				GameObject.Find("Tomato_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timeTomato" + i.ToString());
 				GameObject.Find("Tomato_" + i).GetComponent<Growth>().timeInPercent = PlayerPrefs.GetFloat("TomatoTimeToGrow");
-				GameObject.Find("Tomato_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Tomato_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("TomatoSprite")];
+				GameObject.Find("Tomato_" + i).GetComponent<Growth>().currentSprite = PlayerPrefs.GetInt("TomatoSprite");
 			}
 		}
 		if (GameObject.Find("Carrot_1") != null)
@@ -115,7 +119,7 @@ public class Controller : MonoBehaviour
 			{
 				GameObject.Find("Carrot_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timeCarrot" + i.ToString());
 				GameObject.Find("Carrot_" + i).GetComponent<Growth>().timeInPercent = PlayerPrefs.GetFloat("CarrotTimeToGrow");
-				GameObject.Find("Carrot_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Carrot_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("CarrotSprite")];
+				GameObject.Find("Carrot_" + i).GetComponent<Growth>().currentSprite = PlayerPrefs.GetInt("CarrotSprite");
 
 			}
 		}
@@ -127,15 +131,14 @@ public class Controller : MonoBehaviour
 			{
 				GameObject.Find("Potato_" + i).GetComponent<Growth>().hour = PlayerPrefs.GetInt("timePotato" + i.ToString());
 				GameObject.Find("Potato_" + i).GetComponent<Growth>().timeInPercent = PlayerPrefs.GetFloat("PotatoTimeToGrow");
-				GameObject.Find("Potato_" + i).GetComponent<SpriteRenderer>().sprite = GameObject.Find("Potato_" + i).GetComponent<Growth>().sprites[PlayerPrefs.GetInt("PotatoSprite")];
+				GameObject.Find("Potato_" + i).GetComponent<Growth>().currentSprite = PlayerPrefs.GetInt("PotatoSprite");
 			}
 		}
 
 
-		PlayerPrefs.SetInt("Wheat", 0);
-		PlayerPrefs.SetInt("Tomato", 0);
-		PlayerPrefs.SetInt("Potato", 0);
-		PlayerPrefs.SetInt("Carrot", 0);
+
+
+
 
 	}
 
@@ -168,6 +171,7 @@ public class Controller : MonoBehaviour
 	{
 
 		Save.savePosajenieVegetables();
+
 
 
 
@@ -208,6 +212,10 @@ public class Controller : MonoBehaviour
 	public void FixedUpdate()
 	{
 		transform.Translate(speedX, 0, 0);
+		PlayerPrefs.SetInt("Wheat", 0);
+		PlayerPrefs.SetInt("Tomato", 0);
+		PlayerPrefs.SetInt("Potato", 0);
+		PlayerPrefs.SetInt("Carrot", 0);
 	}
 
 	async void updateForThrow()
@@ -383,6 +391,8 @@ public class Controller : MonoBehaviour
 		}
 	}
 
+
+
 #if UNITY_ANDROID && !UNITY_EDITOR
     private void OnApplicationPause(bool pause)
     {
@@ -395,6 +405,8 @@ public class Controller : MonoBehaviour
 
 
 		Save.savePosajenieVegetables();
+		Save.saveEnergy();
+
 
 	}
 }

@@ -302,32 +302,14 @@ public class Inventory : MonoBehaviour
                 {
                     searchINT = items[i].id;
 
-					if (items[i].count > 1)
-						items[i].count--;
-					else
-						AddItem(i, data.items[0], 1, 0);
-				}
+                    if (items[i].count > 1)
+                        items[i].count--;
+                    else
+                        AddItem(i, data.items[0], 1, 0);
+                }
             }
         }
     }
-
-	public void SearchItems(Item item, int count, bool isPickUp)
-	{
-		int n = 0;
-
-		for (int i = 0; i < maxCount; i++)
-		{
-			if (items[i].id == item.id)
-			{
-				n++;
-
-				if (items[i].count >= count && n <= 1)
-				{
-					searchINT = items[i].id;
-				}
-			}
-		}
-	}
 }
 
 [System.Serializable]
